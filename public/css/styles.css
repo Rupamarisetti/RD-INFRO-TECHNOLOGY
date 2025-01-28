@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color:  #E6E6FA; /* Light blue background color */
+  color: #333; /* Text color */
+}
+
+
+h1 {
+  color: #4CAF50;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff; /* White table background for better readability */
+  border: 2px solid black; /* Black border for the entire table */
+}
+
+th, td {
+  border: 2px solid black; /* Black border for table cells */
+  padding: 8px;
+  text-align: left;
+}
+
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}

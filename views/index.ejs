@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Todo List</h1>
+  <form action="/" method="POST">
+    <input type="text" name="task" placeholder="Enter task" required>
+    <input type="datetime-local" name="deadline" required>
+    <button type="submit">Add Task</button>
+  </form>
+  
+
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Deadline</th>
+        <th>Completed</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tasks.forEach(task => { %>
+        <tr>
+          <td><%= task.task %></td>
+          <td><%= new Date(task.deadline).toLocaleString() %></td>
+          <td>
+            <form action="/update/<%= task._id %>" method="POST">
+              <input type="checkbox" <%= task.isCompleted ? 'checked' : '' %> onchange="this.form.submit()">
+            </form>
+          </td>
+          <td>
+            <a href="/edit/<%= task._id %>">
+              <button>Edit</button>
+            </a>
+            <form action="/delete/<%= task._id %>" method="POST" style="display:inline;">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
